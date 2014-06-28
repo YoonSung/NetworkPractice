@@ -60,9 +60,8 @@ public class RequestHandler extends Thread {
 				int streamLength = 0;
 				while ((streamLength = dataInputStream.read(arr)) != -1) {
 					// send the first len bytes of arr over socket.
-					dataOutputStream.write(arr);
+					dataOutputStream.write(arr, 0, streamLength);
 				}
-				dataOutputStream.writeBytes("\r\n");
 			}
 		} catch (IOException e) {
 			logger.log(Level.SEVERE, "getStream Error : " + e);
