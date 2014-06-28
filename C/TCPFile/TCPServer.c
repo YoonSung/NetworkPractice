@@ -1,12 +1,12 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include <errno.h>
+#include	<stdio.h>
+#include	<stdlib.h>
+#include	<sys/types.h>
+#include	<sys/socket.h>
+#include	<netinet/in.h>
+#include	<errno.h>
 
-#define SERVER_PORT 8080
-#define BUFFER_SIZE 256
+#define SERVER_PORT 		8080
+#define BUFFER_SIZE 		256
 
 void error(char* msg) {
 	fprintf(stderr, "ERROR: %s. (errno = %d)\n", msg, errno);
@@ -61,9 +61,10 @@ int main(int argc, char *argv[]) {
 		} 
 		else 
 		{
+			//버퍼초기화
 			bzero(buf, BUFFER_SIZE); 
+			//전송받는 데이터양을 저장할 변수
 			int fr_block_sz = 0;
-			int buffer_size = BUFFER_SIZE;
 			
 			while((fr_block_sz = recv(sock2, buf, BUFFER_SIZE, 0)) > 0) 
 			{
@@ -74,7 +75,7 @@ int main(int argc, char *argv[]) {
 				}
 				bzero(buf, BUFFER_SIZE);
 				
-				if (fr_block_sz == 0 || fr_block_sz != buffer_size) 
+				if (fr_block_sz == 0 || fr_block_sz != BUFFER_SIZE) 
 				{
 					break;
 				}

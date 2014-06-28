@@ -1,13 +1,13 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<sys/types.h>
-#include<sys/socket.h>
-#include <errno.h>
-#include<netinet/in.h>
+#include	<stdio.h>
+#include	<stdlib.h>
+#include	<sys/types.h>
+#include	<sys/socket.h>
+#include	<errno.h>
+#include	<netinet/in.h>
 
-#define SERVER_IP "127.0.0.1"
-#define SERVER_PORT 8080
-#define BUFFER_SIZE 256
+#define SERVER_IP 		"127.0.0.1"
+#define SERVER_PORT 		8080
+#define BUFFER_SIZE 		256
 
 void error(char* msg) {
 	fprintf(stderr, "ERROR: %s. (errno = %d)\n", msg, errno);
